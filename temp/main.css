@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Anton|Inconsolata|Major+Mono+Display");
+body {
+  width: 100%;
+  margin: 0;
+  background-color: #2b2835;
+  color: white;
+}
+
+body .header {
+  background-color: #2b2835;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+body .header h1 {
+  font-family: "Major Mono Display", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+body .header nav {
+  height: 60px;
+  background-color: #8a2a1d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Anton", sans-serif;
+}
+
+body .header nav div a {
+  color: white;
+  text-decoration: none;
+}
+
+body section {
+  width: 40%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+body section h2 {
+  text-align: center;
+  font-size: 2em;
+  border: 2px solid black;
+  font-family: "Anton", sans-serif;
+}
+
+body section article h3 {
+  font-family: "Major Mono Display", sans-serif;
+}
+
+body section article p {
+  font-family: "Inconsolata", sans-serif;
+  font-size: 1.2em;
+}
+
+body section article a {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  color: #8a2a1d;
+  font-family: "Anton", sans-serif;
+}
+/*# sourceMappingURL=main.css.map */
