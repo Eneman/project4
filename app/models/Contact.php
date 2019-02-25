@@ -7,7 +7,6 @@
         {
             $req = 'SELECT * FROM author';
             $res = parent::exeRequest($req);
-            $test = $res->fetch(\PDO::FETCH_OBJ);
-            var_dump($test);
+            return $res->fetch();
         }
     }
