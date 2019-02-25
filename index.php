@@ -1,10 +1,15 @@
 <?php
+    if (!defined('BASE_URL'))
+    {
+        define('BASE_URL', '/FORMATION/PROJET4');
+    }
 
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
     if($url == '/')
     {
-        require_once __DIR__.'\temp\index.html';
+        /* require_once __DIR__.'\temp\index.html'; */
+        header("Location: post/list");
     }
     else
     {
