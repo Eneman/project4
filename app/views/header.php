@@ -12,9 +12,8 @@
     <div class="header">
         <h1>jeAn forteroche</h1>
         <nav class="navigation_menu">
-            <div><a href="http://home">Accueil</a></div>
-            <div><a href="http://chapters">Chapitres</a></div>
+            <div><a href="<?php echo BASE_URL; ?>/post/list">Accueil</a></div>
             <div><a href="<?php echo BASE_URL; ?>/contact/view">Contacts</a></div>
-            <div><a href="http://about">A propos</a></div>
+            <div><a href="<?php echo BASE_URL; ?>/contact/view">A propos</a></div>
         </nav>
     </div>  
