@@ -5,11 +5,14 @@
     }
 
     $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
-
     if($url == '/')
     {
         /* require_once __DIR__.'\temp\index.html'; */
         header("Location: post/list");
+    }
+    else if ($url[0] == 'admin' && !array_key_exists ( '1' , $url ))
+    {
+        header("Location: admin/index");
     }
     else
     {
