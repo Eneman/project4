@@ -12,6 +12,7 @@
             
             $postModel = new Post();
             $post = $postModel->getPost($postID);
+            $comments = $postModel->getComments($postID);
             require_once 'app\views\post\view.php';
         }
 
@@ -21,22 +22,8 @@
             $postList = $postModel->listPost();
             require_once 'app\views\post\index.php';
         }
-        
-        public function createAction()
-        {
-            if(!array_key_exists ( 'post_title' , $_POST ))
-            {
-                require_once 'app\views\post\create.php';
-            }
-            else
-            {
-                $postModel = new Post();
-                $newPost = $postModel->createPost($_POST['post_title'], $_POST['post_content']);
-                header("Location: view/last");
-            }
-        }
 
-        public function editAction($postID = null)
+        public function commentAction($postID = null)
         {
             if($postID == null)
             {
@@ -44,19 +31,15 @@
             }
             else
             {
-                $postModel = new Post();
-                $post = $postModel->getPost($postID);
-                if($post){
-                    if(!array_key_exists ( 'post_title' , $_POST ))
-                    {
-                        require_once 'app\views\post\edit.php';
-                    }
-                    else
-                    {
-                        $targetID = $post['post_id'];
-                        $postModel->editPost($_POST['post_title'], $_POST['post_content'], $targetID);
-                        header("Location: /FORMATION/PROJET4/post/view/$targetID");
-                    }
+                if(!array_key_exists ( 'com_content' , $_POST ))
+                {
+                    header("Location: list");
+                }
+                else
+                {
+                    $postModel = new Post();
+                    $newComment = $postModel->createComment($_POST['com_author'], $_POST['com_content'], $postID);
+                    header("Location: /FORMATION/PROJET4/post/view/$postID");
                 }
             }
         }
