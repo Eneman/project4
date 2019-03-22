@@ -1,3 +1,6 @@
+<?php session_start();
+    echo $_SESSION['test'];
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +9,7 @@
     <title>Maquette Graphique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL; ?>/public/assets/main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
     <div class="header">
