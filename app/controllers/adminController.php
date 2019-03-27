@@ -1,16 +1,27 @@
 <?php
+    session_start();
     require_once 'app\models\Admin.php';
     require_once 'app\models\Post.php';
 
     class AdminController
     {
+        public function checkSession()
+        {
+            if (!isset($_SESSION['connected']))
+            {
+                header("Location: /FORMATION/PROJET4/admin/login");
+            }
+        }
+
         public function indexAction()
         {
+            $this->checkSession();
             require_once 'app\views\admin\index.php';
         }
 
         public function postlistAction()
         {
+            $this->checkSession();
             $adminModel = new Admin();
             $postList = $adminModel->listPost();
             require_once 'app\views\admin\postlist.php';
@@ -18,6 +29,7 @@
         
         public function commentlistAction()
         {
+            $this->checkSession();
             $adminModel = new Admin();
             $commentList = $adminModel->listComments();
             require_once 'app\views\admin\commentlist.php';
@@ -25,6 +37,7 @@
 
         public function createAction()
         {
+            $this->checkSession();
             if(!array_key_exists ( 'post_title' , $_POST ))
             {
                 require_once 'app\views\admin\create.php';
@@ -39,6 +52,7 @@
 
         public function editAction($postID = null)
         {
+            $this->checkSession();
             if($postID == null)
             {
                 /* 404 */
@@ -64,6 +78,7 @@
 
         public function deleteAction($postID = null)
         {
+            $this->checkSession();
             if($postID == null)
             {
                 /* 404 */
@@ -83,6 +98,7 @@
         }
         public function deletecommentAction($comID = null)
         {
+            $this->checkSession();
             if($comID == null)
             {
                 /* 404 */
@@ -101,21 +117,25 @@
 
         public function loginAction()
         {
-            if (isset($_POST['pwd']))
+            if (isset($_POST['pwd']) && isset($_SESSION['connected']) == false)
             {
                 $adminModel = new Admin();
                 $realPwd = $adminModel->checkPassword();
                 $pwd = $_POST['pwd'];
                 if (password_verify($pwd, $realPwd[0]))
                 {
-                    echo "MOT DE PASSE OK";
                     session_start();
-                    $_SESSION['test'] = 'pwd';
+                    $_SESSION['connected'] = 1;
+                    header("Location: /FORMATION/PROJET4/admin/index");
                 }
                 else
                 {
                     echo "MAUVAIS MOT DE PASSE";
                 }
+            }
+            elseif(isset($_SESSION['connected']))
+            {
+                echo "Vous etes deja connecté";
             }
             else
             {
