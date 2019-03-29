@@ -43,4 +43,12 @@
                 }
             }
         }
+
+        public function reportCommentAction($comID)
+        {                
+            $postModel = new Post();
+            $ip=$_SERVER['REMOTE_ADDR'];
+            $temp = $postModel->reportComment($comID);
+            echo $temp['com_report'];
+        }
     }

@@ -39,5 +39,14 @@
             $req = 'INSERT into comment(post_id, com_author, com_content, com_date) VALUES(:p_id, :c_author, :c_content, NOW())';
             $res = parent::exeRequest($req, ['p_id' => $p_id, 'c_author' => $c_author, 'c_content' => $c_content]);
         }
+
+        public function reportComment($comID)
+        {
+            $req = 'UPDATE  comment SET com_report = com_report+1 WHERE com_id = ?';
+            $res = parent::exeRequest($req, [$comID]);
+            $req = 'SELECT com_report FROM comment WHERE com_id = ?';
+            $res = parent::exeRequest($req, [$comID]);
+            return $res->fetch();
+        }
     }
 
