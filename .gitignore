@@ -1,3 +1,5 @@
 projet4.code-workspace
 *.scss
 *.map
+node_modules/
+package*.json
