@@ -36,7 +36,7 @@
 
         public function listComments()
         {
-            $req = 'SELECT * FROM comment ORDER BY com_report, com_id DESC';
+            $req = 'SELECT * FROM comment ORDER BY com_report DESC';
             $res = parent::exeRequest($req);
             return $res->fetchAll();
         }
@@ -53,6 +53,12 @@
             $req = 'SELECT author_pwd FROM author';
             $res = parent::exeRequest($req);
             return $res->fetch();
+        }
+
+        public function editInfos($adress, $mail, $about)
+        {
+            $req = 'UPDATE author SET adress = :a_adress, mail = :a_mail, about = :a_about';
+            $res = parent::exeRequest($req, ['a_adress' => $adress, 'a_mail' => $mail, 'a_about' => $about]);
         }
     }
 

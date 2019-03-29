@@ -10,11 +10,5 @@
     </form>
 
 </section>
-<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=9qrbi8545615l7v6s565owh9c30xo5ubpfssxlch2pvj07mo">
-</script>
-<script>
-  tinymce.init({
-    selector: '.editor'
-  });
-</script>
+
 <?php require_once 'app/views/footer.php'; ?>

@@ -2,6 +2,8 @@
     session_start();
     require_once 'app\models\Admin.php';
     require_once 'app\models\Post.php';
+    require_once 'app\models\About.php';
+    require_once 'app\models\Contact.php';
 
     class AdminController
     {
@@ -76,6 +78,28 @@
             }
         }
 
+        public function infoAction()
+        {
+            $this->checkSession();
+            $aboutModel = new About();
+            $contactModel = new Contact();
+            $adminModel = new Admin();
+            
+            $contact = $contactModel->getContact();
+            $about = $aboutModel->getAbout();
+
+            if(!array_key_exists ( 'adress' , $_POST ))
+            {
+                require_once 'app\views\admin\info.php';
+            }
+            else
+            {
+                $adminModel->editInfos($_POST['adress'], $_POST['mail'], $_POST['about']);
+                header("Location: /FORMATION/PROJET4/admin/index");
+            }
+            
+        }
+
         public function deleteAction($postID = null)
         {
             $this->checkSession();
@@ -135,7 +159,9 @@
             }
             elseif(isset($_SESSION['connected']))
             {
-                echo "Vous etes deja connecté";
+                session_destroy();
+                /* echo "Vous etes deja connecté"; */
+                header("Location: /FORMATION/PROJET4/post/list");
             }
             else
             {

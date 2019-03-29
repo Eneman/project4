@@ -5,7 +5,7 @@
 
     <form method="post" action="<?php echo BASE_URL; ?>/admin/edit/<?php echo $post["post_id"];?> class="post_editor">
         Titre : <input type="text" name="post_title" required value="<?php echo $post["post_title"]; ?>"> <br>
-        Chapitre : <textarea name="post_content" cols="100" rows="30" required ><?php echo $post["post_content"]; ?>
+        Chapitre : <textarea name="post_content" cols="100" rows="30" required class="editor"><?php echo $post["post_content"]; ?>
         </textarea> <br>
         <input type="submit">
     </form>
