@@ -1,9 +1,9 @@
 <?php
     session_start();
-    require_once 'app\models\Admin.php';
-    require_once 'app\models\Post.php';
-    require_once 'app\models\About.php';
-    require_once 'app\models\Contact.php';
+    require_once 'app/models/Admin.php';
+    require_once 'app/models/Post.php';
+    require_once 'app/models/About.php';
+    require_once 'app/models/Contact.php';
 
     class AdminController
     {
@@ -11,14 +11,14 @@
         {
             if (!isset($_SESSION['connected']))
             {
-                header("Location: /FORMATION/PROJET4/admin/login");
+                header("Location: /PROJET4/admin/login");
             }
         }
 
         public function indexAction()
         {
             $this->checkSession();
-            require_once 'app\views\admin\index.php';
+            require_once 'app/views/admin/index.php';
         }
 
         public function postlistAction()
@@ -26,7 +26,7 @@
             $this->checkSession();
             $adminModel = new Admin();
             $postList = $adminModel->listPost();
-            require_once 'app\views\admin\postlist.php';
+            require_once 'app/views/admin/postlist.php';
         }
         
         public function commentlistAction()
@@ -34,7 +34,7 @@
             $this->checkSession();
             $adminModel = new Admin();
             $commentList = $adminModel->listComments();
-            require_once 'app\views\admin\commentlist.php';
+            require_once 'app/views/admin/commentlist.php';
         }
 
         public function createAction()
@@ -42,13 +42,13 @@
             $this->checkSession();
             if(!array_key_exists ( 'post_title' , $_POST ))
             {
-                require_once 'app\views\admin\create.php';
+                require_once 'app/views/admin/create.php';
             }
             else
             {
                 $adminModel = new Admin();
                 $newPost = $adminModel->createPost($_POST['post_title'], $_POST['post_content']);
-                header("Location: /FORMATION/PROJET4/post/view/last");
+                header("Location: /PROJET4/post/view/last");
             }
         }
 
@@ -67,12 +67,12 @@
                 if($post){
                     if(!array_key_exists ( 'post_title' , $_POST ))
                     {
-                        require_once 'app\views\admin\edit.php';
+                        require_once 'app/views/admin/edit.php';
                     }
                     else
                     {
                         $adminModel->editPost($_POST['post_title'], $_POST['post_content'], $postID);
-                        header("Location: /FORMATION/PROJET4/post/view/$postID");
+                        header("Location: /PROJET4/post/view/$postID");
                     }
                 }
             }
@@ -90,12 +90,12 @@
 
             if(!array_key_exists ( 'adress' , $_POST ))
             {
-                require_once 'app\views\admin\info.php';
+                require_once 'app/views/admin/info.php';
             }
             else
             {
                 $adminModel->editInfos($_POST['adress'], $_POST['mail'], $_POST['about']);
-                header("Location: /FORMATION/PROJET4/admin/index");
+                header("Location: /PROJET4/admin/index");
             }
             
         }
@@ -115,7 +115,7 @@
                 if($post){
                     
                         $adminModel->deletePost($postID);
-                        header("Location: /FORMATION/PROJET4/admin/postlist");
+                        header("Location: /PROJET4/admin/postlist");
                     
                 }
             }
@@ -134,7 +134,7 @@
                 if($comment){
                     
                     $adminModel->deleteComment($comID);
-                    header("Location: /FORMATION/PROJET4/admin/commentlist");
+                    header("Location: /PROJET4/admin/commentlist");
                 }
             }
         }
@@ -150,7 +150,7 @@
                 {
                     session_start();
                     $_SESSION['connected'] = 1;
-                    header("Location: /FORMATION/PROJET4/admin/index");
+                    header("Location: /PROJET4/admin/index");
                 }
                 else
                 {
@@ -161,11 +161,11 @@
             {
                 session_destroy();
                 /* echo "Vous etes deja connecté"; */
-                header("Location: /FORMATION/PROJET4/post/list");
+                header("Location: /PROJET4/post/list");
             }
             else
             {
-                require_once 'app\views\admin\login.php';
+                require_once 'app/views/admin/login.php';
             }
         }
     }

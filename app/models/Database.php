@@ -7,7 +7,7 @@
         {
             if($this->db == null)
             {
-                $this->db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', '',
+                $this->db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'projet4', 'projet4',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             }
             return $this->db;

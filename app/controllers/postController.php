@@ -1,5 +1,5 @@
 <?php
-    require_once 'app\models\Post.php';
+    require_once 'app/models/Post.php';
 
     class PostController
     {
@@ -13,14 +13,14 @@
             $postModel = new Post();
             $post = $postModel->getPost($postID);
             $comments = $postModel->getComments($postID);
-            require_once 'app\views\post\view.php';
+            require_once 'app/views/post/view.php';
         }
 
         public function listAction()
         {
             $postModel = new Post();
             $postList = $postModel->listPost();
-            require_once 'app\views\post\index.php';
+            require_once 'app/views/post/index.php';
         }
 
         public function commentAction($postID = null)
@@ -39,7 +39,7 @@
                 {
                     $postModel = new Post();
                     $newComment = $postModel->createComment($_POST['com_author'], $_POST['com_content'], $postID);
-                    header("Location: /FORMATION/PROJET4/post/view/$postID");
+                    header("Location: /PROJET4/post/view/$postID");
                 }
             }
         }

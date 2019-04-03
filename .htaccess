@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteBase /FORMATION/PROJET4
+RewriteBase /PROJET4
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
