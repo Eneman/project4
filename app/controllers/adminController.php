@@ -95,6 +95,10 @@
             else
             {
                 $adminModel->editInfos($_POST['adress'], $_POST['mail'], $_POST['about']);
+                if ($_POST['pwd'] != "")
+                {
+                    $adminModel->editPassword($_POST['pwd']);
+                }
                 header("Location: /PROJET4/admin/index");
             }
             

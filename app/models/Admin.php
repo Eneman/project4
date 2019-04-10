@@ -26,6 +26,8 @@
         {
             $req = 'DELETE FROM post  WHERE post_id = :p_id';
             $res = parent::exeRequest($req, ['p_id' => $p_id]);
+            $req = 'DELETE FROM comment  WHERE post_id = :p_id';
+            $res = parent::exeRequest($req, ['p_id' => $p_id]);
         }
         
         public function deleteComment($c_id)
@@ -59,6 +61,12 @@
         {
             $req = 'UPDATE author SET adress = :a_adress, mail = :a_mail, about = :a_about';
             $res = parent::exeRequest($req, ['a_adress' => $adress, 'a_mail' => $mail, 'a_about' => $about]);
+        }
+
+        public function editPassword($pwd)
+        {
+            $req = 'UPDATE author SET author_pwd = :a_pwd';
+            $res = parent::exeRequest($req, ['a_pwd' => password_hash($pwd, PASSWORD_DEFAULT)]);
         }
     }
 
