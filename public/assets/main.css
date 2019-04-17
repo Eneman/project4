@@ -1,71 +1,68 @@
-@import url("https://fonts.googleapis.com/css?family=Anton|Inconsolata|Major+Mono+Display");
-body {
-  width: 100%;
-  margin: 0;
-  background-color: #2b2835;
-  color: white;
+body
+{
+    background-color: #2F3344;
+    margin-top: 136px;
+    color: white;
 }
 
-body .header {
-  background-color: #2b2835;
-  position: fixed;
-  width: 100%;
-  top: 0;
+.navbar
+{
+    background-color: #993333;
 }
 
-body .header h1 {
-  font-family: "Major Mono Display", sans-serif;
-  font-size: 1.5em;
-  text-align: center;
+.jf_title
+{
+    background-color: #2F3344;
 }
 
-body .header nav {
-  height: 60px;
-  background-color: #8a2a1d;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: "Anton", sans-serif;
+.jf_title h1
+{
+    margin-bottom: 0;
 }
 
-body .header nav div a {
-  color: white;
-  text-decoration: none;
+.jf_menus
+{
+    width: 100%;
 }
 
-body section {
-  width: 40%;
-  margin: auto;
-  margin-top: 150px;
+/* .btn-primary
+{
+    background-color: #993333;
+    border-color: #7e2e2e;
 }
 
-body section h2 {
-  text-align: center;
-  font-size: 2em;
-  border: 2px solid black;
-  font-family: "Anton", sans-serif;
+.btn-primary:hover
+{
+    background-color: #612121;
+    border-color: #581d1d;
+} */
+
+.post_container
+{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 10px;
+    border-color: rgb(71, 72, 75) !important;
 }
 
-body section article h3 {
-  font-family: "Major Mono Display", sans-serif;
+.tox-tinymce
+{
+    border-radius: 0.25rem !important;
 }
 
-body section article p {
-  font-family: "Inconsolata", sans-serif;
-  font-size: 1.2em;
+.comments_container
+{
+    margin-top: 50px;
 }
 
-body section article a {
-  display: block;
-  text-align: right;
-  text-decoration: none;
-  color: #8a2a1d;
-  font-family: "Anton", sans-serif;
+@media (max-width: 768px) {
+    body
+    {
+        margin-top: 88px;
+    }
+    .container.page_container
+    {
+        max-width: none;
+    }
 }
-/*# sourceMappingURL=main.css.map */
+

@@ -1,27 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jean Forteroche</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL; ?>/public/assets/main.css" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=9qrbi8545615l7v6s565owh9c30xo5ubpfssxlch2pvj07mo">
-    </script>
-    <script>
-        tinymce.init({
-            selector: '.editor'
-        });
-    </script>
-</head>
-<body>
-    <div class="header">
-        <h1><a href="<?php echo BASE_URL; ?>/post/list">jeAn forteroche</a></h1>
-        <nav class="navigation_menu">
-            <div><a href="<?php echo BASE_URL; ?>/post/list">Accueil</a></div>
-            <div><a href="<?php echo BASE_URL; ?>/contact/view">Contacts</a></div>
-            <div><a href="<?php echo BASE_URL; ?>/about/view">A propos</a></div>
-            <div><a href="<?php echo BASE_URL; ?>/admin/index">Administration</a></div>
-        </nav>
-    </div>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/assets/main.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <div class="container-fluid text-center jf_title d-none d-md-block">
+          <h1>Jean Forteroche</h1>
+      </div>
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-block d-md-none" href="#">Jean Forteroche</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav d-flex justify-content-around jf_menus">
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo BASE_URL; ?>/post/list">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo BASE_URL; ?>/contact/view">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo BASE_URL; ?>/about/view">A propos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administration
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="<?php echo BASE_URL; ?>/admin/postlist">Gerer les Chapitres</a>
+                <a class="dropdown-item" href="<?php echo BASE_URL; ?>/admin/commentlist">Gerer les commentaires</a>
+                <a class="dropdown-item" href="<?php echo BASE_URL; ?>/admin/create">Creer un post</a>
+                <a class="dropdown-item" href="<?php echo BASE_URL; ?>/admin/info">Modifier les informations</a>
+                <a class="dropdown-item" id="connection" href="<?php echo BASE_URL; ?>/admin/login">
+                  <?php echo(!isset($_SESSION['connected']) ? "Connexion" : "Deconnexion"); ?>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="page_container container">
+        <div class="row">
+        <div class="col d-none d-md-block"></div>
+            <div class="col-12 col-md-8">
+    
