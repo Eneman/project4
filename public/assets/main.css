@@ -76,6 +76,11 @@ footer > .row
     width: 100%;
 }
 
+.fa-exclamation-triangle
+{
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     body
     {
