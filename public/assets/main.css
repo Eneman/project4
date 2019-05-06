@@ -55,6 +55,27 @@ body
     margin-top: 50px;
 }
 
+.title_jf
+{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.fa-exclamation-triangle
+{
+    cursor: pointer;
+}
+footer
+{
+    height: 60px;
+    background-color: rgb(29, 28, 28);
+}
+
+footer > .row
+{
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     body
     {

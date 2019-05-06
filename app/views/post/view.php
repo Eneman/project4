@@ -10,21 +10,22 @@
 <section class="comments_container">
     <form method="post" action="<?php echo BASE_URL; ?>/post/comment/<?php echo $post["post_id"];?>" class="comments">
     <div class="form-group">
-        <input id="author" class="form-control" type="text" name="com_author" placeholder="Nom" required>
+        <input id="author" class="form-control" type="text" name="com_author" placeholder="Nom *" required>
     </div>
-    <textarea class="form-control" name="com_content" cols="100" rows="10" placeholder="Taper votre commentaire" required ></textarea>
-    
+    <div class="form-group">
+        <textarea class="form-control com_editor" name="com_content" cols="100" rows="10" placeholder="Taper votre commentaire *" required ></textarea>
+    </div>
     <button class="btn btn-primary" type="submit">Envoyer</button>
     </form>
 
     <?php foreach($comments as $comment) {?>
         <article class="post_container" id="<?php echo $comment['com_id']?>">
             <h3 class="com_author">
-                <?php echo htmlspecialchars($comment['com_author']); ?>
+                <?php echo $comment['com_author']; ?>
                 <span class="com_report h5"><i class="fas fa-exclamation-triangle" onclick="report(this)"></i><span><?php echo $comment['com_report']; ?></span></span>
             </h3>
             <small class="text-muted"><?php echo $comment['com_date']; ?></small>
-            <p class="com_content"><?php echo htmlspecialchars($comment['com_content']); ?> ...</p>
+            <p class="com_content"><?php echo $comment['com_content']; ?> ...</p>
         </article>
     <?php } ?>
 </section>

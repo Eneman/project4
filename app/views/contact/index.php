@@ -13,11 +13,11 @@
     <p> Ou m'envoyer un mail directement depuis cette page </p>
     <form method="post" action="<?php echo BASE_URL; ?>/contact/view" class="mail">
     <div class="form-group">
-        <label for="subject">Sujet</label>
+        <label for="subject">Sujet *</label>
         <input class="form-control" type="text" name="subject" id="subject" placeholder="Sujet" required>
     </div>
     <div class="form-group">
-        <label for="msg">Message</label>
+        <label for="msg">Message *</label>
         <textarea class="form-control editor" name="msg" id="msg" cols="70" rows="20" required></textarea>
     </div>
         
