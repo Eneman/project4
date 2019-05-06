@@ -40,12 +40,23 @@
             $res = parent::exeRequest($req, ['p_id' => $p_id, 'c_author' => $c_author, 'c_content' => $c_content]);
         }
 
-        public function reportComment($comID)
+        public function reportComment($comID, $ip)
         {
-            $req = 'UPDATE  comment SET com_report = com_report+1 WHERE com_id = ?';
-            $res = parent::exeRequest($req, [$comID]);
+            
+            $req = 'SELECT * FROM report WHERE com_id = :com_id AND user_ip = :user_ip LIMIT 1';
+            $res = parent::exeRequest($req, ['com_id' => $comID, 'user_ip' => $ip]);
+            if ($res->fetch() == false)
+            {
+                $req = 'UPDATE  comment SET com_report = com_report+1 WHERE com_id = ?';
+                $res = parent::exeRequest($req, [$comID]);
+
+                $req = 'INSERT INTO report(com_id, user_ip) VALUES(:com_id, :user_ip)';
+                $res = parent::exeRequest($req, ['com_id' => $comID, 'user_ip' => $ip]);
+
+            }
             $req = 'SELECT com_report FROM comment WHERE com_id = ?';
             $res = parent::exeRequest($req, [$comID]);
+            
             return $res->fetch();
         }
     }

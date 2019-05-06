@@ -38,7 +38,7 @@
                 else
                 {
                     $postModel = new Post();
-                    $newComment = $postModel->createComment($_POST['com_author'], $_POST['com_content'], $postID);
+                    $newComment = $postModel->createComment(htmlspecialchars($_POST['com_author']), htmlspecialchars($_POST['com_content']), $postID);
                     header("Location: /PROJET4/post/view/$postID");
                 }
             }
@@ -48,7 +48,7 @@
         {                
             $postModel = new Post();
             $ip=$_SERVER['REMOTE_ADDR'];
-            $temp = $postModel->reportComment($comID);
+            $temp = $postModel->reportComment($comID, $ip);
             echo $temp['com_report'];
         }
     }

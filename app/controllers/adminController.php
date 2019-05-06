@@ -47,7 +47,7 @@
             else
             {
                 $adminModel = new Admin();
-                $newPost = $adminModel->createPost($_POST['post_title'], $_POST['post_content']);
+                $newPost = $adminModel->createPost(htmlspecialchars($_POST['post_title']), $_POST['post_content']);
                 header("Location: /PROJET4/post/view/last");
             }
         }
@@ -99,7 +99,7 @@
                 {
                     $adminModel->editPassword($_POST['pwd']);
                 }
-                header("Location: /PROJET4/admin/index");
+                header("Location: /PROJET4/about/view");
             }
             
         }

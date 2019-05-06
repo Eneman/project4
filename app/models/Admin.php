@@ -34,6 +34,8 @@
         {
             $req = 'DELETE FROM comment  WHERE com_id = :c_id';
             $res = parent::exeRequest($req, ['c_id' => $c_id]);
+            $req = 'DELETE FROM report  WHERE com_id = :c_id';
+            $res = parent::exeRequest($req, ['c_id' => $c_id]);
         }
 
         public function listComments()
